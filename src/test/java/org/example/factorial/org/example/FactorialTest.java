@@ -11,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 * factorial 2 -> 2
 * factorial 3 -> 6
 * factorial 4 -> 24
+* negative number -> null
 */
 
 class FactorialTest {
@@ -52,5 +53,11 @@ class FactorialTest {
         int expectedValue = 24;
         int obtainedValue = factorial.compute(4);
         assertEquals(expectedValue, obtainedValue);
+    }
+
+    @Test
+    public void shouldComputeOfNegativeNumberRaiseAnException(){
+        var factorial = new Factorial();
+        assertThrows(RuntimeException.class, () -> Factorial.compute(-1));
     }
 }
